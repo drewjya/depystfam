@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "YST Family",
+    "rewrites": [
+        {
+            "source": "/:a*",
+            "destination": "/"
+        }
+    ]
+}
