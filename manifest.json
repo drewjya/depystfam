@@ -1,11 +1,11 @@
 {
-    "name": "ystfamily",
-    "short_name": "ystfamily",
+    "name": "YST Family",
+    "short_name": "YST Family",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#hexcode",
     "theme_color": "#hexcode",
-    "description": "A new Flutter project.",
+    "description": "YST Family is a family of YST",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

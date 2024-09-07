@@ -1,7 +1,7 @@
-importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
 importScripts(
-  "https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"
+  "https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"
 );
+importScripts("/firebase-messaging-custom.js");
 
 const channel = new BroadcastChannel("sw-messages");
 
@@ -20,7 +20,16 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 // Optional:
-messaging.onBackgroundMessage((message) => {
-  console.log("onBackgroundMessage", message);
-  console.log("Received background message ", message);
+messaging.onBackgroundMessage((payload) => {
+  console.log("onBackgroundMessage", payload);
+  console.log("Received background message ", payload);
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+  };
+
+  return self.registration.showNotification(
+    notificationTitle,
+    notificationOptions
+  );
 });
